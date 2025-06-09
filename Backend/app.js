@@ -1,36 +1,36 @@
-import express from 'express'
+import express, { urlencoded } from 'express'
 import {nanoid} from 'nanoid'
-import connectDB from './src/config/mongo.config.js';
-import urlSchema from './src/models/shortUrl.model.js';
+import connectDB from './src/config/mongo.config.js'
+import shortUrl from './src/models/shortUrl.model.js';
 
-const app=express();
+const app= express();
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(urlencoded({extended:true}));
 connectDB();
 
+const PORT=process.env.PORT;
+
 app.post('/api/create',(req,res)=>{
-    const {url}= req.body;
-    const fullUrl= url;
-    const shortUrl= nanoid(7);
-    res.send(shortUrl);
-    const newUrl = new urlSchema({
-        full_url: fullUrl,
-        short_url: shortUrl
-    });
-    newUrl.save();
+    const shorturl= nanoid(7);
+    const {url} =req.body;
+    const urlSchema = new shortUrl({
+        full_url:url,
+        short_url:shorturl
+    })
+    urlSchema.save();
+    res.send(shorturl);
 })
 
-app.get('/:id', async (req,res)=>{
-    const shortUrl= req.params.id;
-    const url= await urlSchema.findOne({short_url:shortUrl})
+app.get('/:id',async (req,res)=>{
+    const shorturl= req.params.id;
+    const url= await shortUrl.findOne({short_url:shorturl});
     if(url){
-        res.redirect(url.full_url);
+        res.redirect(301,url.full_url);
     }else{
-        res.status(400).send("404 status");
+        res.status(404).send("Not Found");
     }
 })
 
-app.listen(process.env.PORT, ()=>{
-    console.log(`http://localhost:5300`)
-    console.log(`server is running on port: ${process.env.PORT}`)
+app.listen(PORT,()=>{
+    console.log(`server is runnning on port: ${PORT}`);
 })

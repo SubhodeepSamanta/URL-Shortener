@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
 const shortUrlSchema= new mongoose.Schema({
     full_url:{
@@ -12,9 +12,9 @@ const shortUrlSchema= new mongoose.Schema({
         required: true
     },
     clicks:{
-        type:Number,
-        required:true,
-        default: 0
+        type: Number,
+        default: 0,
+        required: true
     },
     user:{
         type: mongoose.Schema.Types.ObjectId,
@@ -22,6 +22,6 @@ const shortUrlSchema= new mongoose.Schema({
     }
 })
 
-const shorturl= mongoose.model("shortUrl",shortUrlSchema);
+const shortUrl= mongoose.model("shortUrl",shortUrlSchema);
 
-export default shorturl;
+export default shortUrl;
