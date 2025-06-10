@@ -5,8 +5,10 @@ import shortUrl from './src/models/shortUrl.model.js';
 import shortUrlrouter from './src/routes/shortUrl.routes.js'
 import { redirectController } from './src/controllers/shortUrl.controller.js';
 import { errorHandler } from './src/utils/errorHandler.js';
+import cors from 'cors';
 
 const app= express();
+app.use(cors());
 app.use(express.json());
 app.use(urlencoded({extended:true}));
 connectDB();
