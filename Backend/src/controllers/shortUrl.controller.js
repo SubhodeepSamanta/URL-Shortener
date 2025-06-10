@@ -1,7 +1,5 @@
-import { getShortUrl, saveShortUrl } from "../dao/shortUrl.js";
-import shortUrl from "../models/shortUrl.model.js";
-import { createShortUrlWithoutUser } from "../services/shortUrl.service.js";
-import { generateNanoId } from "../utils/generateNanoId.js";
+import { getShortUrl } from "../dao/shortUrl.js"
+import { createShortUrlWithoutUser } from "../services/shortUrl.service.js"
 
 export const shortUrlController = async (req, res, next) => {
   try {
