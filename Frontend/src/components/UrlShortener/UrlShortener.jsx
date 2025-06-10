@@ -2,7 +2,7 @@ import React from 'react'
 import style from '../UrlShortener/UrlShortener.module.css'
 import { useRef } from 'react'
 import { useState } from 'react';
-import axios from 'axios'
+import axiosInstance from '../../api/axiosInstance';
 
 const UrlShortener = () => {
   const [url,setUrl]= useState('');
@@ -14,7 +14,7 @@ const UrlShortener = () => {
   }
   
   const handleClick= async ()=>{
-    const {data}= await axios.post("http://localhost:5600/api/create", {url});
+    const {data}= await axiosInstance.post("/api/create", {url});
     setShortUrl(data);
     console.log(data);
   }
