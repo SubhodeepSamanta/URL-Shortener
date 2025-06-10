@@ -8,9 +8,9 @@ export const saveShortUrl= (url,shorturl, userId)=>{
     if(userId){
         urlSchema.user=userId;
     }
-    urlSchema.save();
+    return urlSchema.save();
 }
 
 export const getShortUrl= async (shorturl)=>{
-    return await shortUrl.findOne({short_url:shorturl})
+    return await shortUrl.findOneAndUpdate({short_url:shorturl},{$inc:{clicks:1}})
 }
