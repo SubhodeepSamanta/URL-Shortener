@@ -15,8 +15,8 @@ const UrlShortener = () => {
   
   const handleClick= async ()=>{
     const {data}= await axiosInstance.post("/api/create", {url});
-    setShortUrl(data);
-    console.log(data);
+    setShortUrl(data.shorturl);
+    console.log(data.shorturl);
   }
 
   const handleCopy= ()=>{

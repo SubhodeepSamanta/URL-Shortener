@@ -5,7 +5,7 @@ export const shortUrlController = async (req, res, next) => {
   try {
     const { url } = req.body;
     const shorturl = await createShortUrlWithoutUser(url);
-    res.send(process.env.APP_URL + process.env.PORT + "/" + shorturl);
+    res.status(200).json({shorturl: process.env.APP_URL + process.env.PORT + "/" + shorturl});
   } catch (err) {
     next(err);
   }
