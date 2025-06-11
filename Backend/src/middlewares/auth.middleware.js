@@ -1,5 +1,4 @@
 import { findUserById } from "../dao/user.js";
-import User from "../models/user.model.js";
 import { verifyToken } from "../utils/helper.js";
 
 export const authMiddleware = async (req, res, next) => {
@@ -7,7 +6,7 @@ export const authMiddleware = async (req, res, next) => {
         const token = req.cookies.accessToken;
         if (!token) return res.status(401).json({ message: "No token provided" });
         const decoded = await verifyToken(token);
-        const user = await User.findById(decoded.id);
+        const user = await findUserById(decoded.id);
         if (!user) return res.status(401).json({ message: "Unauthorised" });
         req.user = user;
         next();
