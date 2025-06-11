@@ -6,6 +6,7 @@ import shortUrlrouter from './src/routes/shortUrl.routes.js'
 import { redirectController } from './src/controllers/shortUrl.controller.js';
 import { errorHandler } from './src/utils/errorHandler.js';
 import cors from 'cors';
+import authRoutes from './src/routes/auth.routes.js';
 
 const app= express();
 app.use(cors());
@@ -15,9 +16,9 @@ connectDB();
 
 const PORT=process.env.PORT;
 
-app.use('/api/create',shortUrlrouter)
-
-app.get('/:id',redirectController)
+app.use('/api/create',shortUrlrouter);
+app.get('/:id',redirectController);
+app.use('/api/auth',authRoutes);
 
 app.use(errorHandler);
 
