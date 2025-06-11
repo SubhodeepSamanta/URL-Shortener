@@ -1,4 +1,5 @@
 import { getShortUrl } from "../dao/shortUrl.js"
+import { authMiddleware } from "../middlewares/auth.middleware.js";
 import { createShortUrlWithoutUser, createShortUrlWithUser } from "../services/shortUrl.service.js"
 
 export const shortUrlController = async (req, res, next) => {
