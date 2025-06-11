@@ -7,11 +7,13 @@ import { redirectController } from './src/controllers/shortUrl.controller.js';
 import { errorHandler } from './src/utils/errorHandler.js';
 import cors from 'cors';
 import authRoutes from './src/routes/auth.routes.js';
+import cookieParser from 'cookie-parser'
 
 const app= express();
 app.use(cors());
 app.use(express.json());
 app.use(urlencoded({extended:true}));
+app.use(cookieParser());
 connectDB();
 
 const PORT=process.env.PORT;
