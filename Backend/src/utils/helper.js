@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 
 
 export const signToken= async (payload)=>{
-    return jwt.sign(payload,process.env.JWT_SECRET,{expiresIn: "5m"})
+    return jwt.sign(payload,process.env.JWT_SECRET,{expiresIn: "1h"})
 }
 
 export const verifyToken= async (token)=>{

@@ -4,14 +4,14 @@ import { createShortUrlWithoutUser, createShortUrlWithUser } from "../services/s
 
 export const shortUrlController = async (req, res, next) => {
   try {
-    const { url } = req.body;
+    const { url, slug } = req.body;
     let shorturl;
-    if(!req.user){
+    if (req.user) {
+      shorturl = await createShortUrlWithUser(url, req.user._id, slug && slug.trim() ? slug.trim() : undefined);
+    } else {
       shorturl = await createShortUrlWithoutUser(url);
-    }else{
-      shorturl = await createShortUrlWithUser(url,req.user._id);
     }
-    res.status(200).json({shorturl: process.env.APP_URL + process.env.PORT + "/" + shorturl});
+    res.status(200).json({ shorturl: process.env.APP_URL + process.env.PORT + "/" + shorturl });
   } catch (err) {
     next(err);
   }
@@ -25,7 +25,7 @@ export const redirectController = async (req, res, next) => {
     const shorturl = req.params.id;
     const url = await getShortUrl(shorturl);
     if (url) {
-      res.redirect(301, url.full_url);
+      res.redirect(302, url.full_url);
     } else {
       res.status(404).send("Not Found");
     }

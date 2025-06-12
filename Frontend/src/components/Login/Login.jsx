@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./Login.module.css";
-import axiosInstance from "../../api/axiosInstance";
+import axiosInstance from "../../api/axiosInstance.js";
+import { refreshNavBarAuth } from "../../pages/NavBar.jsx";
 
 const Login = ({ onLogin, onShowSignUp }) => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ const Login = ({ onLogin, onShowSignUp }) => {
         { email, password },
         { withCredentials: true }
       );
+      refreshNavBarAuth();
       setLoading(false);
       if (onLogin) onLogin();
     } catch (err) {

@@ -7,6 +7,7 @@ import cors from 'cors';
 import authRoutes from './src/routes/auth.routes.js';
 import cookieParser from 'cookie-parser'
 import { attachUser } from './src/utils/attachUser.js';
+import urlsRoutes from './src/routes/urls.routes.js'
 
 const app= express();
 app.use(cors({
@@ -19,8 +20,8 @@ app.use(cookieParser());
 connectDB();
 
 const PORT=process.env.PORT;
-
 app.use(attachUser);
+app.use('/api/urls', urlsRoutes)
 app.use('/api/create',shortUrlrouter);
 app.get('/:id',redirectController);
 app.use('/api/auth',authRoutes);

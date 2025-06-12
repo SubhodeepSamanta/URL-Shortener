@@ -12,7 +12,7 @@ export const saveShortUrl= (url,shorturl, userId)=>{
 }
 
 export const getShortUrl= async (shorturl)=>{
-    return await shortUrl.findOneAndUpdate({short_url:shorturl},{$inc:{clicks:1}})
+    return await shortUrl.findOneAndUpdate({short_url:shorturl},{$inc:{clicks:1}},{new:true})
 }
 
 export const getCustomShortUrl= async (slug)=>{
