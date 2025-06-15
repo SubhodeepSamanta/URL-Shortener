@@ -1,20 +1,25 @@
+
 <div align="center">
 
-<!-- <img src="public/favicon.svg" alt="URL Shortener Logo" width="150"/> -->
+<!-- <img src="public/favicon.svg" alt="URL Shortener Logo" width="180"/> -->
 
 # ✨ URL Shortener - Simplify Your Links ✨
 
-> 🔗 A secure, full-stack application to shorten, track, and manage your URLs with ease.
+> 🔗 Shorten, Track, and Manage URLs with Ease
 
-[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=white&labelColor=20232A)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite&logoColor=white&labelColor=20232A)](https://vitejs.dev/)
-[![Node.js](https://img.shields.io/badge/Node.js-20.0.0-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-4.18.0-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-6.0.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
+[![React](https://img.shields.io/badge/React-2023-61DAFB?style=for-the-badge&logo=react&logoColor=white&labelColor=1e1e1e)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-NextGen-646CFF?style=for-the-badge&logo=vite&logoColor=white&labelColor=1e1e1e)](https://vitejs.dev/)
+[![Axios](https://img.shields.io/badge/Axios-HTTP%20Client-5A29E4?style=for-the-badge&logo=axios&logoColor=white&labelColor=1e1e1e)](https://axios-http.com/)
+[![React Router](https://img.shields.io/badge/React%20Router-Dynamic%20Routing-F44250?style=for-the-badge&logo=react-router&logoColor=white&labelColor=1e1e1e)](https://reactrouter.com/)
+[![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white&labelColor=1e1e1e)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Node.js](https://img.shields.io/badge/Node.js-BackEnd-339933?style=for-the-badge&logo=node.js&logoColor=white&labelColor=1e1e1e)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express-Minimal%20Server-000000?style=for-the-badge&logo=express&logoColor=white&labelColor=1e1e1e)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=1e1e1e)](https://www.mongodb.com/)
+[![JWT](https://img.shields.io/badge/JWT-Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white&labelColor=1e1e1e)](https://jwt.io/)
 
-[![GitHub stars](https://img.shields.io/github/stars/subhodeepsamanta/url-shortener?style=social)](https://github.com/subhodeepsamanta/url-shortener/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/subhodeepsamanta/url-shortener?style=social)](https://github.com/subhodeepsamanta/url-shortener/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/subhodeepsamanta/url-shortener?style=social)](https://github.com/subhodeepsamanta/url-shortener/issues)
+[![GitHub stars](https://img.shields.io/github/stars/SubhodeepSamanta/URL-Shortener?style=social)](https://github.com/SubhodeepSamanta/URL-Shortener/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/SubhodeepSamanta/URL-Shortener?style=social)](https://github.com/SubhodeepSamanta/URL-Shortener/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/SubhodeepSamanta/URL-Shortener?style=social)](https://github.com/SubhodeepSamanta/URL-Shortener/issues)
 
 ---
 
@@ -22,180 +27,139 @@
 
 ## ✨ Features
 
-- 🔐 **JWT Authentication** – Secure user login, registration, and logout
-- 🔗 **Custom URL Shortening** – Generate shortened URLs with optional slugs
-- 📊 **Click Tracking** – Track number of visits per short link
-- 📁 **Dashboard** – Manage your URLs with copy and analytics
-- 🚀 **Fast Performance** – Built with Vite and optimized routing
-- 🌐 **Clean UI** – Simple and intuitive design using custom CSS
-
----
+- 🔐 JWT-based User Authentication
+- 🔗 Shorten long URLs with optional custom slugs
+- 📊 Dashboard with click tracking and analytics
+- 🔁 Redirection from short URL to original
+- 📋 Copy short URLs with one click
 
 ## 🚀 Quick Start
 
-### 🧰 Prerequisites
+### Prerequisites
 
-- Node.js `v18+`
-- npm `v9+`
-- MongoDB instance (local or cloud)
+- Node.js (v18 or higher)
+- npm (v9 or higher)
+- MongoDB URI
+- Git
 
----
-
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/subhodeepsamanta/url-shortener.git
-cd url-shortener
+git clone https://github.com/SubhodeepSamanta/URL-Shortener.git
+cd URL-Shortener
 ```
 
----
-
-### 2️⃣ Backend Setup
+### 2. Backend Setup
 
 ```bash
-# Navigate to backend directory
-cd server
-
-# Install dependencies
+cd backend
 npm install
 
-# Create .env file
-touch .env
+# Create .env file and add:
+PORT=5000
+MONGODB_URI=your_mongo_uri
+JWT_SECRET=your_jwt_secret
 ```
 
-#### 🔐 Backend `.env` Variables
-
-| Variable       | Description                   | Example                                  |
-|----------------|-------------------------------|------------------------------------------|
-| `PORT`         | Backend port                  | `5000`                                   |
-| `MONGODB_URI`  | MongoDB connection string     | `mongodb+srv://user:pass@cluster.mongodb.net/db` |
-| `JWT_SECRET`   | Secret for JWT token signing  | `your_jwt_secret_here`                   |
+### 3. Frontend Setup
 
 ```bash
-# Start backend server
-npm run server
-```
-
----
-
-### 3️⃣ Frontend Setup
-
-```bash
-# Open a new terminal window
-cd client
-
-# Install dependencies
+cd ../frontend
 npm install
 
-# Create .env file
-touch .env
+# Create .env file and add:
+VITE_BACKEND_URL=http://localhost:5000
 ```
 
-#### 🌐 Frontend `.env` Variables
-
-| Variable            | Description           | Example              |
-|---------------------|-----------------------|----------------------|
-| `VITE_BACKEND_URL`  | Backend server URL    | `http://localhost:5000` |
+### 4. Run the App
 
 ```bash
-# Start frontend server
+# Backend
+cd backend
+npm run dev
+
+# Frontend (new terminal)
+cd frontend
 npm run dev
 ```
 
----
+### 📁 Environment Variables
 
-### 4️⃣ Access the Application
+#### Backend
 
-- Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:5000`
+| Variable      | Description               | Example                              |
+|---------------|---------------------------|--------------------------------------|
+| `PORT`        | Server Port               | 5000                                 |
+| `MONGODB_URI` | MongoDB Connection String | mongodb+srv://...                    |
+| `JWT_SECRET`  | JWT Secret Key            | your-secret-key                      |
 
----
+#### Frontend
 
-## 💻 Development Scripts
-
-<div align="center">
-
-| Command         | Description                |
-|----------------|----------------------------|
-| `npm run dev`  | Starts Vite dev server     |
-| `npm run server` | Starts Express backend server |
-
-</div>
-
----
+| Variable          | Description     | Example              |
+|-------------------|-----------------|----------------------|
+| `VITE_BACKEND_URL`| API base URL    | http://localhost:5000|
 
 ## 🛠️ Tech Stack
 
-<div align="center">
-
 ### Frontend
-
-![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=flat-square&logo=react)
-![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=flat-square&logo=vite)
-![Axios](https://img.shields.io/badge/Axios-1.6.0-5A29E4?style=flat-square&logo=axios)
-![React Router](https://img.shields.io/badge/React_Router-6.22.2-CA4245?style=flat-square&logo=react-router)
+- React
+- Vite
+- Axios
+- React Router
+- Custom CSS
 
 ### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT
 
-![Node.js](https://img.shields.io/badge/Node.js-20.0.0-339933?style=flat-square&logo=node.js)
-![Express](https://img.shields.io/badge/Express-4.18.0-000000?style=flat-square&logo=express)
-![MongoDB](https://img.shields.io/badge/MongoDB-6.0.0-47A248?style=flat-square&logo=mongodb)
-![JWT](https://img.shields.io/badge/JWT-secure-F7DF1E?style=flat-square&logo=jsonwebtokens)
+## 🖼️ Screenshots
+
+<div align="center">
+
+| Homepage | Signup | Login |
+|---------|--------|-------|
+| ![Homepage](screenshots/homepage.png) | ![Signup](screenshots/signup.png) | ![Login](screenshots/login.png) |
+
+| Dashboard | Working Example |
+|-----------|------------------|
+| ![Dashboard](screenshots/dashboard.png) | ![Working](screenshots/working.png) |
 
 </div>
 
----
+## 💻 Development Scripts
+
+| Command        | Description           |
+|----------------|-----------------------|
+| `npm run dev`  | Starts frontend/backend in dev mode |
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Here's how you can help:
+We welcome contributions!
 
-1. Fork the repository
-2. Create your feature branch:  
-   `git checkout -b feature/YourAmazingFeature`
-3. Commit your changes:  
-   `git commit -m 'Add YourAmazingFeature'`
-4. Push to the branch:  
-   `git push origin feature/YourAmazingFeature`
+1. Fork this repo
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-<div align="center">
-
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-
-</div>
-
----
 
 ## 📝 License
 
-This project is licensed under the [MIT License](LICENSE).
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
----
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-<div align="center">
-
-| Resource | Description |
-|----------|-------------|
-| [React](https://reactjs.org/) | UI Library |
-| [Vite](https://vitejs.dev/) | Frontend build tool |
-| [MongoDB](https://mongodb.com) | NoSQL Database |
-| [JWT.io](https://jwt.io/) | Token Authentication |
-| [Express](https://expressjs.com/) | Backend framework |
-
-</div>
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [MongoDB](https://www.mongodb.com/)
+- [Express](https://expressjs.com/)
+- [JWT](https://jwt.io/)
 
 ---
 
 <div align="center">
 
-### Crafted with 💙 by [Subhodeep Samanta](https://github.com/subhodeepsamanta)
-
-[![GitHub Follow](https://img.shields.io/github/followers/subhodeepsamanta?style=social)](https://github.com/subhodeepsamanta)
+Made with ❤️ by [SubhodeepSamanta](https://github.com/SubhodeepSamanta)
 
 </div>
