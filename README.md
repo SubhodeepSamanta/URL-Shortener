@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/favicon.svg" alt="URL Shortener Logo" width="150"/>
+<!-- <img src="public/favicon.svg" alt="URL Shortener Logo" width="150"/> -->
 
 # ✨ URL Shortener - Simplify Your Links ✨
 
